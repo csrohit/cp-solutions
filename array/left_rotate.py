@@ -1,13 +1,11 @@
-def left_rotate(arr):
-    first = arr[0]
-    arr = arr[1:]
-    arr.append(first)
-    return arr
-
+def left_rotate(arr, d):
+    items_rotated = arr[:d]
+    nList = arr[d:]
+    nList.extend(items_rotated)
+    return nList
 
 if __name__ == '__main__':
     n, d = map(int, input().split())
     arr = [int(i) for i in input().split()]
-    for _ in range(d % n):
-        arr = left_rotate(arr)
+    arr = left_rotate(arr, d)
     print(*arr)
